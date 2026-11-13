@@ -6,6 +6,6 @@ Input: float32 NHWC[1,224,224,3], raw RGB0..255. Use Pillow-compatible antialias
 
 Preserves PIN-protected stop, sticky contiguous visual-area masks, animations and debug scores. Pending content stays visible by user choice. Hair/arms/legs are not separate classes. Manual diagnostic recall6/37 and normal false blocks24/152; this export does not establish reliable Islamic coverage.
 
-Build from VisualFilter-PC: build-scroll.ps1 -Probe for x86_64 debug, benchmark and debug tests; build-scroll.ps1 for signed ARM64 release, release tests and lint. Keep research-debug.keystore private. Model assets must match the pinned hash. No Internet permission or screenshot persistence.
+Derleme: Yayınlanan release APK'si proje sorumlusu tarafından derlenir ve imzalanır; bu süreçte kullanılan yardımcı betik ve imzalama anahtarı bu depoda yer almaz. Kaynaktan derleme ve test komutları için CONTRIBUTING.md dosyasına bakın. Model dosyası sabitlenmiş SHA-256 değeriyle eşleşmelidir. İnternet izni yoktur ve ekran görüntüleri kaydedilmez.
 
-Verification reports are in VisualFilter-PC/scroll-evaluation/small-092. Emulator timing is not physical Galaxy A55 or source-to-compositor latency. CPU runtime uses intra2/inter1 threads, one in-flight pipeline, no user FPS cap; Android capture restrictions/backoff still apply.
+Doğrulama raporları bu depoda yer almaz. Emulator timing is not physical Galaxy A55 or source-to-compositor latency. CPU runtime uses intra2/inter1 threads, one in-flight pipeline, no user FPS cap; Android capture restrictions/backoff still apply.

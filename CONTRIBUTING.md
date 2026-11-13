@@ -42,8 +42,10 @@ Android SDK yolunu `ANDROID_HOME` ortam değişkeniyle veya depoya eklenmeyen bi
 ### Modüller
 
 - `app`: Visual Filter uygulaması (paket adı `com.augelab.visualfilter.research`).
-- `synthetic-target`: Emülatörde maskelemeyi denemek için kontrollü test ekranı. Test görselleri olmadan derlenir ama görsel gösteremez.
-- `model-benchmark`: Android ile bilgisayar arasındaki sayısal tutarlılığı ve model süresini ölçen ayrı test uygulaması. Model dosyası ve referans dosyası (`binary-parity.json`) olmadan derlenir ama çalışmaz.
+- `synthetic-target`: Emülatörde maskelemeyi denemek için kontrollü test ekranı. Kod, test görsellerini (`coffee.png` gibi) doğrudan `synthetic-target/src/main/assets/` klasöründen açar. Bu görseller depoda yoktur; kendi yerel verinizi eklemeden açarsanız uygulama hata verip kapanır.
+- `model-benchmark`: Android ile bilgisayar arasındaki sayısal tutarlılığı ve model süresini ölçen ayrı test uygulaması. Çalışmak için model dosyasına, `app/src/androidTest/assets/` altında yerel bir `binary-parity.json` referans dosyasına ve bu dosyanın gösterdiği test görsellerine ihtiyaç duyar. Bunlar depoda yoktur; olmadan test başarısız olur.
+
+Bu iki modül, sizin hazırlayacağınız **yerel, lisansı açık, yalnızca yetişkinleri içeren ve kimliği belirlenemeyen** veri olmadan çalışmaz (ayrıntılar aşağıda). `app` modülü ve birim testleri bu veriye ihtiyaç duymaz.
 
 ### Test verileri dağıtılmaz
 

@@ -12,12 +12,13 @@ Android ekranındaki medyayı cihazda analiz edip NSFW olarak sınıflandırdı�
 
 Şimdilik yalnızca Android 14 ve üstünde, Instagram için çalışır.
 
+<!-- GUNCELLENECEK: APK yeniden derlenince "Dosya boyutu" ve "SHA-256" satirlarini yeni degerlerle guncelleyin. -->
 | Bilgi | Değer |
 |---|---|
 | Platform | Android, yalnızca ARM64 (arm64-v8a) işlemcili telefonlar |
 | Sürüm | 0.9.2 (`0.9.2-mobilenetv3small-ft`, versionCode 25) |
-| Dosya boyutu | yaklaşık 39 MB (40.773.457 bayt) |
-| SHA-256 | `7d675440e35cc8b5ca3fe0ce2708d400790da61ee229dc2c0b283bf41c5265c9` |
+| Dosya boyutu | yaklaşık 39 MB (40.773.457 bayt) <!-- GUNCELLENECEK: yeni APK boyutu --> |
+| SHA-256 | `7d675440e35cc8b5ca3fe0ce2708d400790da61ee229dc2c0b283bf41c5265c9` <!-- GUNCELLENECEK: yeni APK SHA-256 --> |
 | Uygulama adı (telefonda) | Visual Filter Scroll Research |
 | Çalışması için | Android 14 veya üzeri ve telefonda yüklü Instagram uygulaması |
 
