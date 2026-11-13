@@ -28,7 +28,7 @@ signing.properties
 *.apks
 output-metadata.json
 
-# Model agirliklari: kaynak "model haric" olarak paylasilir
+# Model agirliklari depoya eklenmez (asagidaki tek istisna disinda)
 *.onnx
 *.ort
 *.tflite
@@ -66,3 +66,6 @@ venv/
 verification/
 *.log
 logcat*.txt
+
+# Istisna: uygulamanin kullandigi tek model dosyasi depoda tutulur
+!app/src/main/assets/review_mobilenetv3small224_224_rgb_fp32.onnx

@@ -3,3 +3,4 @@ gradlew text eol=lf
 *.bat text eol=crlf
 *.jar binary
 app/src/main/assets/ONNXRUNTIME-1.30.0-ThirdPartyNotices.txt -text
+*.onnx binary

@@ -175,10 +175,11 @@ Bu uygulamaya bir çocuğu veya başka birini korumak için güvenmeyin. Ebeveyn
 
 ## Model dosyası hakkında
 
-- Bu depo **model dosyasını içermez** ("model hariç" kaynak). Model ağırlıkları (`.onnx` vb.) `.gitignore` ile depodan dışlanmıştır.
-- Yayınlanan 0.9.2 APK'si modeli içinde taşır: `review_mobilenetv3small224_224_rgb_fp32.onnx` (6.094.846 bayt, SHA-256 `e202e26cf35d3445d00ac7af74183d1d962121b3a5327fc41afd63605d5c4780`).
+- Model dosyası bu depodadır: `app/src/main/assets/review_mobilenetv3small224_224_rgb_fp32.onnx` (6.094.846 bayt, SHA-256 `e202e26cf35d3445d00ac7af74183d1d962121b3a5327fc41afd63605d5c4780`). Yayınlanan 0.9.2 APK'sinin içindeki model de aynı dosyadır.
+- Depoda yalnızca bu tek model dosyası tutulur; başka model ağırlıkları (`.onnx`, `.tflite`, `.pt` vb.) `.gitignore` ile dışlanmıştır.
+- **Lisans durumu:** Model ağırlıkları projenin MIT lisansı **kapsamında değildir**. Modelin eğitim verisinin hakları doğrulanmamıştır (ayrıntılar aşağıda ve [Lisans](#lisans) bölümünde).
 - Model, torchvision'ın ImageNet üzerinde önceden eğitilmiş MobileNetV3 Small ağırlıklarından yerelde ince ayar (fine-tune) yapılarak üretilmiştir. Kaynak ve lisans kayıtları `app/src/main/assets/` altındaki `MODEL-SOURCES.json`, `NOTICE.txt`, `license_provenance.json` ve `UPSTREAM_BACKBONE_PROVENANCE.json` dosyalarındadır. Bu kayıtlara göre torchvision kodu BSD-3-Clause lisanslıdır; ImageNet görsellerinin ve ince ayar verisinin hakları bağımsız olarak doğrulanmamıştır.
-- Modeli derlemeye eklemek için `restore-pinned-models.ps1 -ModelPath <model dosyası>` kullanılır. Betik dosyanın SHA-256 değerini kontrol eder ve yalnızca doğru modeli `app/src/main/assets/` altına kopyalar. Model olmadan uygulama derlenebilir ama filtre çalışmaz.
+- Model depoda olduğu için Gradle ile derlenen uygulama doğrudan çalışır; ek bir adım gerekmez. Uygulama modeli yüklerken SHA-256 değerini kontrol eder; dosya farklıysa modeli yüklemez. `restore-pinned-models.ps1` betiği, model dosyası değiştirildiyse veya silindiyse doğru dosyayı geri koymak için hâlâ kullanılabilir.
 - Yayınlanan 0.9.2 APK'si proje sorumlusu tarafından ARM64 için release yapılandırmasıyla derlendi; derleme, lint ve 127 birim testi başarıyla geçti. APK bir geliştirme (debug) anahtarıyla imzalanmıştır. Bu derlemede kullanılan yardımcı derleme betiği ve imzalama anahtarı bu depoda yer almaz.
 
 Daha eski sürümlere ait İngilizce araştırma notları `docs/` klasöründedir. Bu notlardaki model ve sayı bilgileri 0.9.0 sürümüne aittir; 0.9.2 için geçerli bilgiler bu README ve `docs/RELEASE-0.9.2.md` dosyasındadır.
@@ -194,6 +195,6 @@ Ayrıntılar, kurallar ve derleme talimatları için [CONTRIBUTING.md](CONTRIBUT
 ## Lisans
 
 - **Kod:** Bu depodaki projenin kendi kodu [MIT lisansı](LICENSE) ile paylaşılır.
-- **Model ağırlıkları:** Model bu depoda yoktur; APK'nin içinde, ayrı bir yayın (release) dosyası olarak dağıtılır. MIT lisansı model ağırlıklarını kapsamaz.
+- **Model ağırlıkları:** Model dosyası (`app/src/main/assets/review_mobilenetv3small224_224_rgb_fp32.onnx`) bu depoda ve APK'nin içinde yer alır, ancak **MIT lisansı model ağırlıklarını kapsamaz**. Model için ayrı bir lisans verilmemiştir.
 - **Eğitim verisi hakları doğrulanmadı:** Modelin temel aldığı ön eğitimin (ImageNet) ve yerel ince ayarda kullanılan eğitim verisinin hakları **tam olarak doğrulanmamıştır**. Modeli veya APK'yi yeniden dağıtmadan ya da ticari amaçla kullanmadan önce bunu göz önünde bulundurun.
 - **Üçüncü taraf lisansları:** Üçüncü taraf bileşenlerin lisansları geçerliliğini korur. Lisans metinleri `app/src/main/assets/` altındadır: ONNX Runtime (MIT, `ONNXRUNTIME-MIT-LICENSE.txt`), ONNX Runtime 1.30.0'ın içerdiği üçüncü taraf bileşenlerin bildirimleri (`ONNXRUNTIME-1.30.0-ThirdPartyNotices.txt`) ve torchvision kodu (BSD-3-Clause, `FRAMEWORK_CODE_LICENSE.txt`). Bu dosyalar APK'nin içinde de yer alır.

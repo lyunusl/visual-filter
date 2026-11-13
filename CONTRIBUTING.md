@@ -16,7 +16,7 @@ Visual Filter'a katkı vermek istediğiniz için teşekkürler. Bu proje bir pro
 3. **Eğitim ve değerlendirme verisi yalnızca lisansı açık veri kümelerinden gelmelidir.** Kullandığınız veri kümesinin adını, kaynağını ve lisansını yazın. Lisansı belirsiz, izinsiz toplanmış veya sosyal medyadan kazınmış veri kabul edilmez.
 4. **Reşit olmayan kişileri içeren hiçbir içerik kullanılamaz, paylaşılamaz ve tarif edilemez.** Bu kuralın istisnası yoktur.
 5. **Yasa dışı içerikle karşılaşırsanız bu depoya değil, yetkili makamlara bildirin.** Türkiye'de bunun için örneğin İhbar Web (ihbarweb.org.tr) kullanılabilir. Böyle bir içeriği hiçbir biçimde depoya, issue'lara veya pull request'lere eklemeyin.
-6. Model ağırlıkları (`.onnx`, `.tflite`, `.pt` vb.), APK dosyaları ve imzalama anahtarları depoya eklenmez. `.gitignore` bunları dışlar; lütfen zorla eklemeyin.
+6. Depoda yalnızca uygulamanın kullandığı tek model dosyası (`app/src/main/assets/review_mobilenetv3small224_224_rgb_fp32.onnx`) bulunur. Başka model ağırlıkları (`.onnx`, `.tflite`, `.pt` vb.), APK dosyaları ve imzalama anahtarları depoya eklenmez. `.gitignore` bunları dışlar; lütfen zorla eklemeyin. Yeni bir model önermek istiyorsanız önce bir issue açın; modelin kaynağını, eğitim verisini ve lisansını açıkça yazın.
 
 Bu kurallara uymayan katkılar açıklama yapılmadan kapatılabilir ve içerik silinebilir.
 
@@ -43,7 +43,7 @@ Android SDK yolunu `ANDROID_HOME` ortam değişkeniyle veya depoya eklenmeyen bi
 
 - `app`: Visual Filter uygulaması (paket adı `com.augelab.visualfilter.research`).
 - `synthetic-target`: Emülatörde maskelemeyi denemek için kontrollü test ekranı. Kod, test görsellerini (`coffee.png` gibi) doğrudan `synthetic-target/src/main/assets/` klasöründen açar. Bu görseller depoda yoktur; kendi yerel verinizi eklemeden açarsanız uygulama hata verip kapanır.
-- `model-benchmark`: Android ile bilgisayar arasındaki sayısal tutarlılığı ve model süresini ölçen ayrı test uygulaması. Çalışmak için model dosyasına, `app/src/androidTest/assets/` altında yerel bir `binary-parity.json` referans dosyasına ve bu dosyanın gösterdiği test görsellerine ihtiyaç duyar. Bunlar depoda yoktur; olmadan test başarısız olur.
+- `model-benchmark`: Android ile bilgisayar arasındaki sayısal tutarlılığı ve model süresini ölçen ayrı test uygulaması. Model dosyası depodadır; ancak çalışmak için ayrıca `app/src/androidTest/assets/` altında yerel bir `binary-parity.json` referans dosyasına ve bu dosyanın gösterdiği test görsellerine ihtiyaç duyar. Bunlar depoda yoktur; olmadan test başarısız olur.
 
 Bu iki modül, sizin hazırlayacağınız **yerel, lisansı açık, yalnızca yetişkinleri içeren ve kimliği belirlenemeyen** veri olmadan çalışmaz (ayrıntılar aşağıda). `app` modülü ve birim testleri bu veriye ihtiyaç duymaz.
 
@@ -70,13 +70,13 @@ Birim testleri (model dosyası gerekmez):
 
 Windows'ta `./gradlew` yerine `gradlew.bat` kullanın.
 
-Modeli derlemeye eklemek (model dosyası sizde varsa):
+Model dosyası depodadır (`app/src/main/assets/review_mobilenetv3small224_224_rgb_fp32.onnx`), bu yüzden aşağıdaki komutlarla derlenen uygulama çalışır durumdadır. Uygulama modelin SHA-256 değerini kontrol eder; yalnızca `e202e26cf35d3445d00ac7af74183d1d962121b3a5327fc41afd63605d5c4780` değerine sahip dosyayı yükler. Dosya değiştiyse veya silindiyse doğru kopyayı şu betikle geri koyabilirsiniz:
 
 ```powershell
 ./restore-pinned-models.ps1 -ModelPath <model-dosyasinin-yolu>
 ```
 
-Betik yalnızca SHA-256 değeri `e202e26cf35d3445d00ac7af74183d1d962121b3a5327fc41afd63605d5c4780` olan dosyayı kabul eder. Model olmadan uygulama derlenir, ancak filtre başlatıldığında model yüklenemez.
+**Model lisansı:** Projenin kodu MIT lisanslıdır, ancak model ağırlıkları MIT kapsamında değildir ve modelin eğitim verisinin hakları doğrulanmamıştır. Modeli ayrı olarak yeniden dağıtmadan veya ticari amaçla kullanmadan önce bunu göz önünde bulundurun.
 
 ARM64 telefon için APK:
 
