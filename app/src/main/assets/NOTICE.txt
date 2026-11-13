@@ -1,0 +1,3 @@
+Derived local reviewed student. Source: https://download.pytorch.org/models/mobilenet_v3_small-047dcff4.pth
+License: Torchvision BSD-3-Clause code; upstream ImageNet image rights separate and not comprehensively verified
+Upstream training-image rights and current dataset ages/rights are not independently established. Previously inspected diagnostic test; no fresh blind holdout claim. No Android phone test or APK replacement.

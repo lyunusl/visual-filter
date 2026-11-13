@@ -1,0 +1,9 @@
+{
+  "source_url": "https://download.pytorch.org/models/mobilenet_v3_small-047dcff4.pth",
+  "official_source_code": "https://github.com/pytorch/vision/blob/v0.25.0/torchvision/models/mobilenetv3.py",
+  "sha256": "047dcff4addef86ea5bc2eff13c9614dc11f47ab1160d0a71a25e7db994f4e1f",
+  "bytes": 10306551,
+  "filename_hash_prefix_verified": true,
+  "weights_loaded_as_tensor_only": true,
+  "not_a_dataset_image_download": true
+}

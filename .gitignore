@@ -1,0 +1,68 @@
+# Gradle / Android Studio
+.gradle/
+**/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+local.properties
+*.iml
+.idea/
+.kotlin/
+.DS_Store
+Thumbs.db
+
+# Imzalama anahtarlari ve gizli ayarlar (asla depoya eklenmez)
+*.jks
+*.keystore
+*.p12
+*.pem
+*.key
+keystore.properties
+signing.properties
+.env
+.env.*
+
+# Derlenmis paketler: APK depoda tutulmaz, GitHub Release dosyasi olarak yayinlanir
+*.apk
+*.aab
+*.apks
+output-metadata.json
+
+# Model agirliklari: kaynak "model haric" olarak paylasilir
+*.onnx
+*.ort
+*.tflite
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.h5
+*.pb
+*.bin
+*.pending
+
+# Test verileri dagitilmaz: gorseller ve bunlara ait kayitlar (etiket, kaynak, referans) depoya eklenmez
+app/src/androidTest/assets/
+synthetic-target/src/main/assets/
+tools/model-evaluation/
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+!app/src/main/res/**/*.png
+tools/emulator/*.png
+*.mp4
+*.webm
+*.mov
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Yerel dogrulama ciktilari ve loglar
+verification/
+*.log
+logcat*.txt

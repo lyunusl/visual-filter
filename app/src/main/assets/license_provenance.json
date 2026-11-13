@@ -1,0 +1,11 @@
+{
+  "framework": {
+    "path": "<yerel-egitim-ortami-yolu-kaldirildi>",
+    "sha256": "c06363f9d33627dc5173b13522444cc85fbb4739f63e16d4587d5c0a165b5b1e",
+    "version": "0.25.0+cu128",
+    "scope": "Installed framework code license; does not independently establish upstream image/checkpoint rights"
+  },
+  "checkpoint_license_declaration": "Torchvision BSD-3-Clause code; upstream ImageNet image rights separate and not comprehensively verified",
+  "checkpoint_source": "https://download.pytorch.org/models/mobilenet_v3_small-047dcff4.pth",
+  "upstream_training_data_rights_independently_verified": false
+}

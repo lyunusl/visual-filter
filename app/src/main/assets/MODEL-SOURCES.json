@@ -1,0 +1,110 @@
+{
+  "model": "New reviewed MobileNetV3 Small224 FP32",
+  "contract": {
+    "artifact": "review_mobilenetv3small224_224_rgb_fp32.onnx",
+    "sha256": "e202e26cf35d3445d00ac7af74183d1d962121b3a5327fc41afd63605d5c4780",
+    "bytes": 6094846,
+    "precision": "FP32",
+    "opset": 17,
+    "input": {
+      "name": "rgb_0_255",
+      "shape": [
+        1,
+        224,
+        224,
+        3
+      ],
+      "dtype": "float32",
+      "layout": "NHWC",
+      "range": [
+        0,
+        255
+      ],
+      "external_geometry": "EXIF oriented RGB, bilinear aspect-preserving letterbox224, RGB128; ties-to-even resize, centered padding",
+      "normalization_embedded": true,
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "android_must_not_repeat_normalization": true
+    },
+    "output": {
+      "shape": [
+        1,
+        2
+      ],
+      "classes": [
+        "nsfw_suggestive",
+        "normal"
+      ],
+      "primary_threshold": 0.4477543234825134,
+      "secondary_threshold": 0.4477543234825134,
+      "decision": "BLOCK iff p[0] >= FP32 threshold",
+      "name": "nsfw_normal_probabilities"
+    },
+    "bindings": {
+      "plan_sha256": "bf6317de47b8b405e9f4237eaa2dfa7b670374f2f08789dd00d5aea495fd85db",
+      "evaluator_sha256": "b570aeedd852a5a5e455c1a83cf142b5c3d7d041bcbd8e1c96b73d19b61f931d",
+      "global_freeze_sha256": "029c4d90d36243117d043e03e01e5593003df4d5fb6ade7d41a69738af13bce8",
+      "manifest_sha256": "3605b921b88ad8fd9f9084967db7e403c4c26cd78d950a4df68e2b6badb67999",
+      "splits_sha256": "738f03c0e9f7631281f32fdf998561296b3d930bca7b260ac3373312fb37fc90",
+      "baseline_audit_sha256": "facaa6d7ac8eac92057b219bf5e34aebc392739b171f24161cffef3ed1dab5ee",
+      "public_manifest_sha256": "bdbf9c28cd15aea6cc9abc66463b3f2bdfbf2b2a84a2e367afe29785ec5edd25",
+      "checkpoint_sha256": "65e80dfe76d2e147118b9a72a8ff0d05cba7499b90681a269d972789b41346e6",
+      "source_spec_sha256": "2bccdb2738069d789d8e0f49c35d79ed02c878c45cb8c998c1297a457669018f"
+    },
+    "source": {
+      "id": "review_mobilenetv3small224",
+      "architecture": "mobilenet_v3_small",
+      "spec_path": "<yerel-egitim-ortami-yolu-kaldirildi>",
+      "spec_sha256": "2bccdb2738069d789d8e0f49c35d79ed02c878c45cb8c998c1297a457669018f",
+      "initial_checkpoint_path": "<yerel-egitim-ortami-yolu-kaldirildi>",
+      "initial_checkpoint_sha256": "dcf341727c65497f17b250f1e9fc40e7738aee4871502ed080eb19e91c640585",
+      "initial_native_input_size": 192,
+      "source": "https://download.pytorch.org/models/mobilenet_v3_small-047dcff4.pth",
+      "license": "Torchvision BSD-3-Clause code; upstream ImageNet image rights separate and not comprehensively verified"
+    },
+    "spec": {
+      "architecture": "mobilenet_v3_small",
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ],
+      "input_size": 224,
+      "resize_mode": "letterbox",
+      "resize_interpolation": "bilinear",
+      "padding_rgb": [
+        128,
+        128,
+        128
+      ],
+      "canonical_class_order": [
+        "nsfw_suggestive",
+        "normal"
+      ],
+      "initial_native_input_size": 192,
+      "source": "https://download.pytorch.org/models/mobilenet_v3_small-047dcff4.pth",
+      "license": "Torchvision BSD-3-Clause code; upstream ImageNet image rights separate and not comprehensively verified"
+    },
+    "parity_status": "PASS",
+    "android_verified": false,
+    "galaxy_a55_50ms_verified": false,
+    "APK_modified": false,
+    "model_id": "mobilenetv3small224_review_e202e26c"
+  },
+  "single_bundled_model": true,
+  "old192_model_not_used": true,
+  "failed_INT8_not_used": true
+}
