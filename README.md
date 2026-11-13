@@ -12,13 +12,12 @@ Android ekranındaki medyayı cihazda analiz edip NSFW olarak sınıflandırdı�
 
 Şimdilik yalnızca Android 14 ve üstünde, Instagram için çalışır.
 
-<!-- GUNCELLENECEK: APK yeniden derlenince "Dosya boyutu" ve "SHA-256" satirlarini yeni degerlerle guncelleyin. -->
 | Bilgi | Değer |
 |---|---|
 | Platform | Android, yalnızca ARM64 (arm64-v8a) işlemcili telefonlar |
 | Sürüm | 0.9.2 (`0.9.2-mobilenetv3small-ft`, versionCode 25) |
-| Dosya boyutu | yaklaşık 39 MB (40.773.457 bayt) <!-- GUNCELLENECEK: yeni APK boyutu --> |
-| SHA-256 | `7d675440e35cc8b5ca3fe0ce2708d400790da61ee229dc2c0b283bf41c5265c9` <!-- GUNCELLENECEK: yeni APK SHA-256 --> |
+| Dosya boyutu | yaklaşık 39 MB (40.806.102 bayt) |
+| SHA-256 | `3b031222b73a5a6775533f8427a39e49b98b31c7e5e1290276e92f24e5e85cb0` |
 | Uygulama adı (telefonda) | Visual Filter Scroll Research |
 | Çalışması için | Android 14 veya üzeri ve telefonda yüklü Instagram uygulaması |
 
@@ -61,6 +60,8 @@ Bu uyarıyı ciddiye alın: APK'yi yalnızca bu sayfadaki bağlantıdan indirin.
 
 1. **Yükle** düğmesine dokunun.
 2. Kurulum bitince **Aç** düğmesine dokunun. Uygulama, ana ekranda **Visual Filter Scroll Research** adıyla görünür.
+
+Not: Bu prototip bir geliştirme anahtarıyla imzalanmıştır. İleriki bir sürüm kalıcı bir anahtarla imzalanabilir; bu durumda o sürümü kurmak için bu sürümü kaldırıp yeniden kurmanız gerekir (PIN, eşik ve sayaç silinir).
 
 ### 5. Uygulamanın istediği izin: Erişilebilirlik hizmeti
 
@@ -178,7 +179,7 @@ Bu uygulamaya bir çocuğu veya başka birini korumak için güvenmeyin. Ebeveyn
 - Yayınlanan 0.9.2 APK'si modeli içinde taşır: `review_mobilenetv3small224_224_rgb_fp32.onnx` (6.094.846 bayt, SHA-256 `e202e26cf35d3445d00ac7af74183d1d962121b3a5327fc41afd63605d5c4780`).
 - Model, torchvision'ın ImageNet üzerinde önceden eğitilmiş MobileNetV3 Small ağırlıklarından yerelde ince ayar (fine-tune) yapılarak üretilmiştir. Kaynak ve lisans kayıtları `app/src/main/assets/` altındaki `MODEL-SOURCES.json`, `NOTICE.txt`, `license_provenance.json` ve `UPSTREAM_BACKBONE_PROVENANCE.json` dosyalarındadır. Bu kayıtlara göre torchvision kodu BSD-3-Clause lisanslıdır; ImageNet görsellerinin ve ince ayar verisinin hakları bağımsız olarak doğrulanmamıştır.
 - Modeli derlemeye eklemek için `restore-pinned-models.ps1 -ModelPath <model dosyası>` kullanılır. Betik dosyanın SHA-256 değerini kontrol eder ve yalnızca doğru modeli `app/src/main/assets/` altına kopyalar. Model olmadan uygulama derlenebilir ama filtre çalışmaz.
-- Kaynak notlarına göre (`docs/RELEASE-0.9.2.md`) 0.9.2 APK'si ARM64 için imzalı release yapılandırmasıyla derlendi; birim testleri ve lint bu derlemeyle birlikte çalıştırıldı (127 debug ve 127 release birim testi geçti, lint: 0 hata, 20 uyarı). Bu derlemede kullanılan yardımcı derleme betiği ve imzalama anahtarı bu depoda yer almaz.
+- Yayınlanan 0.9.2 APK'si proje sorumlusu tarafından ARM64 için release yapılandırmasıyla derlendi; derleme, lint ve 127 birim testi başarıyla geçti. APK bir geliştirme (debug) anahtarıyla imzalanmıştır. Bu derlemede kullanılan yardımcı derleme betiği ve imzalama anahtarı bu depoda yer almaz.
 
 Daha eski sürümlere ait İngilizce araştırma notları `docs/` klasöründedir. Bu notlardaki model ve sayı bilgileri 0.9.0 sürümüne aittir; 0.9.2 için geçerli bilgiler bu README ve `docs/RELEASE-0.9.2.md` dosyasındadır.
 
@@ -195,4 +196,4 @@ Ayrıntılar, kurallar ve derleme talimatları için [CONTRIBUTING.md](CONTRIBUT
 - **Kod:** Bu depodaki projenin kendi kodu [MIT lisansı](LICENSE) ile paylaşılır.
 - **Model ağırlıkları:** Model bu depoda yoktur; APK'nin içinde, ayrı bir yayın (release) dosyası olarak dağıtılır. MIT lisansı model ağırlıklarını kapsamaz.
 - **Eğitim verisi hakları doğrulanmadı:** Modelin temel aldığı ön eğitimin (ImageNet) ve yerel ince ayarda kullanılan eğitim verisinin hakları **tam olarak doğrulanmamıştır**. Modeli veya APK'yi yeniden dağıtmadan ya da ticari amaçla kullanmadan önce bunu göz önünde bulundurun.
-- **Üçüncü taraf lisansları:** Üçüncü taraf bileşenlerin lisansları geçerliliğini korur. Lisans metinleri `app/src/main/assets/` altındadır: ONNX Runtime (MIT, `ONNXRUNTIME-MIT-LICENSE.txt`) ve torchvision kodu (BSD-3-Clause, `FRAMEWORK_CODE_LICENSE.txt`).
+- **Üçüncü taraf lisansları:** Üçüncü taraf bileşenlerin lisansları geçerliliğini korur. Lisans metinleri `app/src/main/assets/` altındadır: ONNX Runtime (MIT, `ONNXRUNTIME-MIT-LICENSE.txt`), ONNX Runtime 1.30.0'ın içerdiği üçüncü taraf bileşenlerin bildirimleri (`ONNXRUNTIME-1.30.0-ThirdPartyNotices.txt`) ve torchvision kodu (BSD-3-Clause, `FRAMEWORK_CODE_LICENSE.txt`). Bu dosyalar APK'nin içinde de yer alır.
